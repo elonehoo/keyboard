@@ -3,18 +3,18 @@ export const isff:boolean = typeof navigator !== 'undefined' ? navigator.userAge
 /**
  * bind event
  */
-export function addEvent(object:any, event:any, method:any, useCapture:any) {
+export function addEvent(object: any, event: string, method: (e: Event | undefined)=>void): void {
   if (object.addEventListener) {
-    object.addEventListener(event, method, useCapture)
+    object.addEventListener(event, method, false);
   } else if (object.attachEvent) {
-    object.attachEvent(`on${event}`, () => { method(window.event); })
+    object.attachEvent(`on${event}`, () => { method(window.event); });
   }
 }
 
 /**
  * convert modifier keys to corresponding key codes
  */
-export function getMods(modifier:any, key:any) {
+export function getMods(modifier: any, key: any) {
   const mods = key.slice(0, key.length - 1)
   for (let i = 0; i < mods.length; i++) mods[i] = modifier[mods[i].toLowerCase()]
   return mods
@@ -23,7 +23,7 @@ export function getMods(modifier:any, key:any) {
 /**
  * convert the passed key string to an array
  */
-export function getKeys(key:any) {
+export function getKeys(key?: string): Array<string> {
   if (typeof key !== 'string') key = ''
   key = key.replace(/\s/g, '') // matches any whitespace character, including spaces, tabs, form feeds, etc.
   const keys = key.split(',') // Set multiple shortcut keys at the same time, separated by ','
@@ -40,7 +40,7 @@ export function getKeys(key:any) {
 }
 
 /**
- * compare arrays of modifier keys
+ * ompare arrays of modifier keys
  */
 export function compareArray(a1:any, a2:any):boolean{
   const arr1 = a1.length >= a2.length ? a1 : a2
