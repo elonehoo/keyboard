@@ -2,6 +2,7 @@
   "name": "vitem-mini",
   "version": "1.0.0",
   "packageManager": "pnpm@6.32.9",
+  "private":"true",
   "scripts": {
     "dev": "vite --port 3333 --open",
     "build": "vite build",
