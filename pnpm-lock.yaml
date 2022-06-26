@@ -23,9 +23,11 @@ importers:
   core:
     specifiers:
       rimraf: ^3.0.2
+      typescript: ^4.7.4
       unbuild: ^0.7.4
     devDependencies:
       rimraf: 3.0.2
+      typescript: 4.7.4
       unbuild: 0.7.4
 
   test:

@@ -1,24 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "module": "ESNext",
-    "target": "es2016",
-    "lib": ["DOM", "ESNext"],
-    "strict": true,
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "target": "es2018",
+    "module": "esnext",
+    "lib": ["esnext"],
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "strict": true,
     "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "types": [
-      "vite/client"
-    ],
-    "paths": {
-      "~/*": ["src/*"]
-    }
-  },
-  "exclude": ["dist", "node_modules"]
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
+  }
 }

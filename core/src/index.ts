@@ -1,6 +1,5 @@
 import { addEvent, compareArray, getKeys, getMods } from './util'
 import { _handlers, _keyMap, _modifier, _mods, modifierMap } from './var'
-import type Hotkeys from './type'
 
 type KeyMap = keyof typeof _keyMap
 type Modifier = keyof typeof _modifier
@@ -136,7 +135,7 @@ function unbind(keysInfo: any, ...args: any): void {
   }
 }
 
-// 解除绑定某个范围的快捷键
+// unbind a range of shortcut keys
 const eachUnbind = ({
   key, scope, method, splitKey = '+',
 }: {
@@ -170,7 +169,7 @@ const eachUnbind = ({
   })
 }
 
-// 对监听对应快捷键的回调函数进行处理
+// process the callback function that monitors the corresponding shortcut key
 function eventHandler(event: Event, handler: any, scope: string) {
   let modifiersMatch
   if (handler.scope === scope || handler.scope === 'all') {
@@ -207,32 +206,23 @@ function eventHandler(event: Event, handler: any, scope: string) {
   }
 }
 
-// 处理keydown事件
+// handling keydown events
 function dispatch(this: any, event: any) {
   const asterisk = _handlers['*']
   let key = event.keyCode || event.which || event.charCode
 
-  // 表单控件过滤 默认表单控件不触发快捷键
+  // form control filtering Default form controls do not trigger shortcut keys
   if (!keyboard.filter.call(this, event))
     return
 
-  // Gecko(Firefox)的command键值224，在Webkit(Chrome)中保持一致
-  // Webkit左右 command 键值不一样
-  if (key === 93 || key === 224)
+  // the command key value of Gecko (Firefox) is 224, which is consistent in Webkit (Chrome)
+  // the left and right command keys of Webkit are different
+  if (key === 93 || key === 224){
     key = 91
-
-  /**
-   * Collect bound keys
-   * If an Input Method Editor is processing key input and the event is keydown, return 229.
-   * https://stackoverflow.com/questions/25043934/is-it-ok-to-ignore-keydown-events-with-keycode-229
-   * http://lists.w3.org/Archives/Public/www-dom/2010JulSep/att-0182/keyCode-spec.html
-   */
-  if (!_downKeys.includes(key) && key !== 229)
+  }
+  if (!_downKeys.includes(key) && key !== 229){
     _downKeys.push(key);
-  /**
-   * Jest test cases are required.
-   * ===============================
-   */
+  }
   ['ctrlKey', 'altKey', 'shiftKey', 'metaKey'].forEach((keyName) => {
     const keyNum = modifierMap[keyName as ModifierMap]
     if (event[keyName as keyof typeof event] && !_downKeys.includes(keyNum as number)) {
@@ -242,22 +232,15 @@ function dispatch(this: any, event: any) {
       _downKeys.splice(_downKeys.indexOf(keyNum as number), 1)
     }
     else if (keyName === 'metaKey' && event[keyName] && _downKeys.length === 3) {
-      /**
-       * Fix if Command is pressed:
-       * ===============================
-       */
       if (!(event.ctrlKey || event.shiftKey || event.altKey))
         _downKeys = _downKeys.slice(_downKeys.indexOf(keyNum as number))
     }
   })
-  /**
-   * -------------------------------
-   */
 
   if (key in _mods) {
     _mods[key as Mods] = true
 
-    // 将特殊字符的key注册到 keyboard 上
+    // register the special character key to the keyboard
     for (const k in _modifier) {
       if (_modifier[k as Modifier] === key)
         keyboard[k] = true
@@ -267,7 +250,7 @@ function dispatch(this: any, event: any) {
       return
   }
 
-  // 将 modifierMap 里面的修饰键绑定到 event 中
+  // bind modifier keys in modifierMap to event
   for (const e in _mods) {
     if (Object.prototype.hasOwnProperty.call(_mods, e))
       _mods[e as Mods] = (event[modifierMap[e as ModifierMap] as keyof typeof event] as boolean)
@@ -283,9 +266,9 @@ function dispatch(this: any, event: any) {
     _mods[18] = true
   }
 
-  // 获取范围 默认为 `all`
+  // get scope defaults to `all`
   const scope = getScope()
-  // 对任何快捷键都需要做的处理
+  // what to do with any shortcut keys
   if (asterisk) {
     for (let i = 0; i < asterisk.length; i++) {
       if (
@@ -296,9 +279,10 @@ function dispatch(this: any, event: any) {
         eventHandler(event, asterisk[i], scope)
     }
   }
-  // key 不在 _handlers 中返回
-  if (!(key in _handlers))
+  // key is not returned in _handlers
+  if (!(key in _handlers)){
     return
+  }
 
   for (let i = 0; i < _handlers[key].length; i++) {
     if (
@@ -309,12 +293,11 @@ function dispatch(this: any, event: any) {
         const record = _handlers[key][i]
         const { splitKey } = record
         const keyShortcut = record.key.split(splitKey)
-        const _downKeysCurrent = [] // 记录当前按键键值
+        const _downKeysCurrent = []
         for (let a = 0; a < keyShortcut.length; a++)
           _downKeysCurrent.push(code(keyShortcut[a]))
 
         if (_downKeysCurrent.sort().join('') === _downKeys.sort().join('')) {
-          // 找到处理内容
           eventHandler(event, record, scope)
         }
       }
@@ -322,23 +305,23 @@ function dispatch(this: any, event: any) {
   }
 }
 
-// 判断 element 是否已经绑定事件
+// determine if element has an event bound
 function isElementBind(element: Document) {
   return elementHasBindEvent.includes(element)
 }
 
 const keyboard: Hotkeys = (key: any, option:any, method?: any) => {
   _downKeys = []
-  const keys = getKeys(key as string) // 需要处理的快捷键列表
+  const keys = getKeys(key as string)
   let mods = []
-  let scope = 'all' // scope默认为all，所有范围都有效
-  let element = document // 快捷键事件绑定节点
+  let scope = 'all'
+  let element = document
   let i = 0
   let keyup = false
   let keydown = true
   let splitKey = '+'
 
-  // 对为设定范围的判断
+  // judgment for the set range
   if (method === undefined && typeof option === 'function')
     method = option
 
@@ -353,20 +336,17 @@ const keyboard: Hotkeys = (key: any, option:any, method?: any) => {
   if (typeof option === 'string')
     scope = option
 
-  // 对于每个快捷键进行处理
+  // for each shortcut key
   for (; i < keys.length; i++) {
-    key = keys[i].split(splitKey) // 按键列表
+    key = keys[i].split(splitKey)
     mods = []
 
-    // 如果是组合快捷键取得组合快捷键
     if (key.length > 1)
       mods = getMods(_modifier, key)
 
-    // 将非修饰键转化为键码
     key = key[key.length - 1]
-    key = key === '*' ? '*' : code(key as string) // *表示匹配所有快捷键
+    key = key === '*' ? '*' : code(key as string)
 
-    // 判断key是否在_handlers中，不在就赋一个空数组
     if (!(key in _handlers))
       _handlers[key] = []
     _handlers[key].push({
@@ -380,7 +360,7 @@ const keyboard: Hotkeys = (key: any, option:any, method?: any) => {
       splitKey,
     })
   }
-  // 在全局document上设置快捷键
+  // set shortcut keys on the global document
   if (typeof element !== 'undefined' && !isElementBind(element) && window) {
     elementHasBindEvent.push(element)
     addEvent(element, 'keydown', (e: Event | undefined) => {

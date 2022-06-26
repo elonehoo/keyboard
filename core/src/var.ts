@@ -1,4 +1,4 @@
-import { isff } from '../util'
+import { isff } from './util'
 
 // Special Keys
 const _keyMap = {
