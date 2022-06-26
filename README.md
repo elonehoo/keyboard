@@ -2,6 +2,17 @@
 
 <em>used to capture keyboard input.</em>
 
+## install
+
+```bash
+#npm
+npm i @elonehoo/keyboard
+# yarn
+yarn add @elonehoo/keyboard
+#pnpm
+pnpm i @elonehoo/keyboard
+```
+
 ## usage
 
 ```typescript
