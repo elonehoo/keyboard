@@ -5,7 +5,36 @@
   "description": "used to capture keyboard input.",
   "license": "MIT",
   "author": "Elone Hoo <huchengyea@163.com>",
-  "main": "./src/index.ts",
+  "keywords": [
+    "keyboard"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/elonehoo/keyboard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elonehoo/keyboard"
+  },
+  "bugs": "https://github.com/elonehoo/keyboard/issues",
   "scripts": {
     "build": "rimraf dist && unbuild",
     "stub": "unbuild --stub",
