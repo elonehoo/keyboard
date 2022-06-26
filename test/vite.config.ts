@@ -16,6 +16,6 @@ export default defineConfig({
     vue({
       reactivityTransform: true,
     }),
-    Unocss()
+    Unocss(),
   ],
 })

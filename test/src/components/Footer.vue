@@ -4,7 +4,6 @@ function toggleDark() {
   const isDark = document.documentElement.classList.toggle('dark')
 
   localStorage.setItem('color-schema', isDark ? 'dark' : 'light')
-
 }
 
 </script>
@@ -14,7 +13,6 @@ function toggleDark() {
     <button class="icon-btn" @click="toggleDark()">
       <div class="i-carbon-sun dark:i-carbon-moon" />
     </button>
-    <a href="https://github.com/elonehoo/vitem-mini" target="_blank" class="icon-btn i-carbon-logo-github">
-    </a>
+    <a href="https://github.com/elonehoo/vitem-mini" target="_blank" class="icon-btn i-carbon-logo-github" />
   </nav>
 </template>

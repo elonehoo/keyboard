@@ -1,11 +1,11 @@
 {
   "name": "@elonehoo/keyboard",
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
   "description": "used to capture keyboard input.",
+  "license": "MIT",
   "author": "Elone Hoo <huchengyea@163.com>",
   "main": "./src/index.ts",
-  "license": "MIT",
   "scripts": {
     "build": "rimraf dist && unbuild",
     "stub": "unbuild --stub",

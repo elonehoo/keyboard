@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import hotkeys from '@elonehoo/keyboard'
+import keyboard from '@elonehoo/keyboard'
 
 // custom activation function
-const activate = (event:any, handler:any) => {
-  const { key } = handler;
-  const elmt = document.querySelector(`.button-${key}`);
+const activate = (event: any, handler: any) => {
+  const { key } = handler
+  const elmt = document.querySelector(`.button-${key}`)
   if (elmt) {
-    elmt.classList.add('active');
-    setTimeout(() => { elmt.classList.remove('active') }, 350) };
+    elmt.classList.add('active')
+    setTimeout(() => { elmt.classList.remove('active') }, 350)
+  }
 }
 
 // see hotkeys docs at
 // https://github.com/jaywcjlove/hotkeys
-hotkeys('a,b,c,7', activate);
+keyboard('a,b,c,7', activate)
 </script>
 
 <template>
@@ -20,10 +21,18 @@ hotkeys('a,b,c,7', activate);
     <p>PRESS ONE OF US ON YOUR KEYBOARD 😙 <br> <small>(FOCUS THIS WINDOW FIRST)</small></p>
 
     <div class="keys">
-      <button class="button-a">A</button>
-      <button class="button-b">B</button>
-      <button class="button-c">C</button>
-      <button class="button-7">7</button>
+      <button class="button-a">
+        A
+      </button>
+      <button class="button-b">
+        B
+      </button>
+      <button class="button-c">
+        C
+      </button>
+      <button class="button-7">
+        7
+      </button>
     </div>
   </div>
 </template>
