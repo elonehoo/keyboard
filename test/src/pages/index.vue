@@ -11,8 +11,6 @@ const activate = (event: any, handler: any) => {
   }
 }
 
-// see hotkeys docs at
-// https://github.com/jaywcjlove/hotkeys
 keyboard('a,b,c,7', activate)
 </script>
 

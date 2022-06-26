@@ -327,7 +327,7 @@ function isElementBind(element: Document) {
   return elementHasBindEvent.includes(element)
 }
 
-const keyboard: Hotkeys = (key: any, option: any, method?: any): void => {
+const keyboard: Hotkeys = (key: any, option:any, method?: any) => {
   _downKeys = []
   const keys = getKeys(key as string) // 需要处理的快捷键列表
   let mods = []
