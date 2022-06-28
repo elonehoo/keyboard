@@ -29,7 +29,7 @@ jobs:
         run: pnpm run build
 
       - name: Run Build
-        run: pnpm run example:build
+        run: pnpm run test:build
 
       - name: echo cname
         run: echo 'keyboard.elonehoo.xyz' > test/dist/CNAME
