@@ -12,11 +12,11 @@
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
@@ -36,13 +36,12 @@
   },
   "bugs": "https://github.com/elonehoo/keyboard/issues",
   "scripts": {
-    "build": "rimraf dist && unbuild",
-    "stub": "unbuild --stub",
+    "build": "rimraf dist && tsup",
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
     "typescript": "^4.7.4",
-    "unbuild": "^0.7.4"
+    "tsup": "^6.1.2"
   }
 }

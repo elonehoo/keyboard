@@ -2,7 +2,7 @@
   "name": "vitem-mini",
   "version": "1.0.0",
   "packageManager": "pnpm@6.32.9",
-  "private":"true",
+  "private": "true",
   "scripts": {
     "dev": "vite --port 3333 --open",
     "build": "vite build",
@@ -12,12 +12,13 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@elonehoo/vue-mac-keyboard": "^0.0.16",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
   },
-  "devDependencies":{
+  "devDependencies": {
     "@elonehoo/eslint-config": "^2.0.0",
-    "@elonehoo/keyboard":"workspace:*",
+    "@elonehoo/keyboard": "workspace:*",
     "@iconify-json/carbon": "^1.1.5",
     "@types/node": "^18.0.0",
     "@unocss/reset": "^0.41.0",
