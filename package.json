@@ -1,13 +1,13 @@
 {
   "name": "@elonehoo/monorepo",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": "true",
   "description": "used to capture keyboard input.",
   "license": "MIT",
   "author": "Elone Hoo <huchengyea@163.com>",
   "scripts": {
-    "build":"pnpm -C core run build",
+    "build": "pnpm -C core run build",
     "release": "bumpp package.json core/package.json --commit --push --tag && pnpm -r publish --access public",
     "typeCheck": "tsc --noEmit",
     "lint": "eslint .",
