@@ -8,7 +8,7 @@ importers:
       '@types/node': 18.7.13
       bumpp: 8.2.1
       eslint: 8.23.0
-      pnpm: 7.9.5
+      pnpm: 7.11.0
       typescript: 4.8.3
       vite: 3.1.0
     devDependencies:
@@ -16,7 +16,7 @@ importers:
       '@types/node': 18.7.13
       bumpp: 8.2.1
       eslint: 8.23.0
-      pnpm: 7.9.5
+      pnpm: 7.11.0
       typescript: 4.8.3
       vite: 3.1.0
 
@@ -3815,14 +3815,14 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /pnpm/7.3.0:
-    resolution: {integrity: sha512-HOXT6V+AznAyjL2Ay3TuuJQucsEguUiKjqyQq4WPPwOpaaILhkKvu8Nn1/OQWGi9V6T7OciyrctAKeYyCha6Ow==}
+  /pnpm/7.11.0:
+    resolution: {integrity: sha512-cxh4TfCE8L4ZbLBN72kTGKTYP7X08nrIzoQ2rQCKihAcIHAdNIgsk4bEJyE1xHjE+bNJt9skwr7aJv3LpvUawQ==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
 
-  /pnpm/7.9.5:
-    resolution: {integrity: sha512-+r7+PlBIsblqia8eUOUsBp/R+lHmGAm55jyQRt3DWMUI0srVR1aNJhQECfx24L53Ckz9g48mVxQXEniQMWQPmw==}
+  /pnpm/7.3.0:
+    resolution: {integrity: sha512-HOXT6V+AznAyjL2Ay3TuuJQucsEguUiKjqyQq4WPPwOpaaILhkKvu8Nn1/OQWGi9V6T7OciyrctAKeYyCha6Ow==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
