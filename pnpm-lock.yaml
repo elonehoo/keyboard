@@ -5,7 +5,7 @@ importers:
   .:
     specifiers:
       '@elonehoo/eslint-config': 2.0.0
-      '@types/node': 18.7.13
+      '@types/node': 18.11.9
       bumpp: 8.2.1
       eslint: 8.23.0
       pnpm: 7.11.0
@@ -13,7 +13,7 @@ importers:
       vite: 3.1.0
     devDependencies:
       '@elonehoo/eslint-config': 2.0.0_itqs5654cmlnjraw6gjzqacppi
-      '@types/node': 18.7.13
+      '@types/node': 18.11.9
       bumpp: 8.2.1
       eslint: 8.23.0
       pnpm: 7.11.0
@@ -551,8 +551,8 @@ packages:
     resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
     dev: true
 
-  /@types/node/18.7.13:
-    resolution: {integrity: sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==}
+  /@types/node/18.11.9:
+    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
