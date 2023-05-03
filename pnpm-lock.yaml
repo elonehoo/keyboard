@@ -17,8 +17,8 @@ importers:
         specifier: 8.39.0
         version: 8.39.0
       pnpm:
-        specifier: 7.32.2
-        version: 7.32.2
+        specifier: 8.4.0
+        version: 8.4.0
       typescript:
         specifier: 4.9.5
         version: 4.9.5
@@ -3820,9 +3820,9 @@ packages:
     hasBin: true
     dev: true
 
-  /pnpm@7.32.2:
-    resolution: {integrity: sha512-PfosE4b8keWHVrO+z4d+ncIIQK9ypTAdRTrk2ioZ2wDN0I9L+mapzJVldVqsZdy7vakyMtxfknN2cn5wjESbvg==}
-    engines: {node: '>=14.6'}
+  /pnpm@8.4.0:
+    resolution: {integrity: sha512-oW5jpFgCmXHIVOU5HZLBWGBtCH7K4JSRdpk7/f+Dtp+KhUsX5NQaWzzYyU9TX7eAsfYMko179133gbUS+JTrMw==}
+    engines: {node: '>=16.14'}
     hasBin: true
     dev: true
 
