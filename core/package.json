@@ -1,7 +1,7 @@
 {
   "name": "@elonehoo/keyboard",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "used to capture keyboard input.",
   "license": "MIT",
   "author": "Elone Hoo <huchengyea@163.com>",
