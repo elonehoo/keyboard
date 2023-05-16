@@ -40,8 +40,8 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
-    "rimraf": "3.0.2",
-    "typescript": "4.9.5",
-    "tsup": "6.7.0"
+    "rimraf": "5.0.0",
+    "tsup": "6.7.0",
+    "typescript": "5.0.4"
   }
 }
