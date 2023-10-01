@@ -17,11 +17,11 @@
   },
   "devDependencies": {
     "@elonehoo/eslint-config": "2.0.0",
-    "@types/node": "20.4.4",
-    "bumpp": "9.1.1",
-    "eslint": "8.45.0",
-    "pnpm": "8.6.9",
-    "typescript": "5.1.6",
-    "vite": "4.4.6"
+    "@types/node": "20.8.0",
+    "bumpp": "9.2.0",
+    "eslint": "8.50.0",
+    "pnpm": "8.8.0",
+    "typescript": "5.2.2",
+    "vite": "4.4.9"
   }
 }
